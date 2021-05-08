@@ -1,2 +1,2 @@
 # gtomo_docs
-Documentation for Global Travel Time Tomography ¡
+Documentation for Global Travel Time Tomography
