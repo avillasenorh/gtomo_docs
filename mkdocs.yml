@@ -1,9 +1,15 @@
-site_name: My Docs
+site_name: Global Tomography
+
+nav:
+- Home: 'index.md'
+- Data:
+    - 'EHB bulletin': 'data/ehb.md'
+    - 'Data preparation': 'data/preparation.md'
 
 extra_javascript:
-    - https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML
+- https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML
 
 markdown_extensions:
-    - mdx_math
+- mdx_math
 
 theme: readthedocs
