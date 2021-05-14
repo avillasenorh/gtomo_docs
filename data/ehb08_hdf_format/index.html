@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>Ehb08 hdf format - Global Tomography</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
+
+  <link rel="stylesheet" href="../../css/theme.css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" />
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Ehb08 hdf format";
+    var mkdocs_page_input_path = "data/ehb08_hdf_format.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> Global Tomography</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../..">Home</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Data</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../ehb/">EHB bulletin</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../preparation/">Data preparation</a>
+                    </li>
+                </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">Global Tomography</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>Ehb08 hdf format</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <pre><code>                            *HDF FILE FORMAT
+
+*HDF file read statement
+
+       read(1,100) 
+     1 ahyp,isol,iseq,iyr,mon,iday,ihr,min,sec,ad,glat,glon,
+     2 depth,iscdep,mb,ms,mw,ntot,ntel,ndep,igreg,se,ser,sedep,
+     3 rstadel,openaz1,openaz2,az1,flen1,az2,flen2,avh
+ 100  format(a1,a3,a2,i2,2i3,1x,2i3,f6.2,a1,2f8.3,2f6.1,3f4.1,
+     1 4i4,3f8.2,3f6.1,4i4,f5.1)
+
+Variable definitions:
+
+ahyp         secondary teleseismic azimuth gap       a1
+
+             blank = &lt;= 180 deg
+             Z     = &gt;  180 deg
+
+                    or
+
+             primary teleseismic azimuth gap
+
+             A     = &lt;  180 deg
+             B     = &lt;  210 deg and  &gt; 180 deg
+             C     = &lt;  240 deg and  &gt; 210 deg
+             D     = &lt;  270 deg and  &gt; 240 deg
+             F     = &gt;  270 deg
+
+isol         solution type                           a3
+
+             HEQ = origin time &amp; hypocenter fixed
+             DEQ = depth free (sedep &lt;= 15 km)
+             WEQ = depth fixed at waveform depth
+             BEQ = depth fixed at BB depth
+             FEQ = depth fixed by Engdahl
+             LEQ = depth fixed by program (sedep &gt; 15 km)
+             XEQ = poor solution (ser &gt; 35 km)
+
+iseq         other info (b=blank)                    a2
+
+             bx = earthquake location known to x km (if x is a number)
+             bc = only regional event data available
+             Xb = explosion/cavity collapse
+             Xx = explosion location known to x km (if x is a number)
+             Mb = CMT solution available
+             Mx = CMT location known to x km (if x is a number)
+             Md = depth reviewed and accepted
+             Mn = depth unreviewed but provisionally accepted 
+                  based on =&gt; 5 depth phases and/or station(s) 
+                  at distance(s) less than the focal depth
+             Mr = depth under review
+             Mf = depth set to regional depth estimate
+             Mh = depth set to Harvard CMT depth
+             Mx = depth reviewed but not accepted
+             bd = depth reviewed and accepted
+             bn = depth unreviewed, but provisionally accepted 
+                  based on =&gt; 5 depth phases and/or station(s) 
+                  at distance(s) less than the focal depth
+             br = depth under review
+             bf = depth set to regional depth estimate
+             bx = depth reviewed but not accepted
+
+iyr          year                                    i2
+mon          month                                   i3
+iday         day                                     i3
+ihr          origin hour                             i4
+min          origin minute                           i3
+sec          origin second                           f6.2
+ad           source agency                           a1
+glat         geographic latitude                     f8.3
+glon         geographic longitude                    f8.3
+depth        depth                                   f6.1
+iscdep       ISC depth                               f6.1
+mb           mb magnitude                            f4.1
+ms           Ms magnitude                            f4.1
+mw           Mw magnitude                            f4.1
+ntot         total number of stations used           i4
+ntel         number of teleseismic stations          i4
+             (delta &gt; 28 deg) used                   
+ndep         number of depth phase observations      i4
+             (delta &gt; 28 deg) used                   
+igreg        Flinn-Engdahl region number             i4
+se           standard error of observations used     f8.2
+ser          standard error in position (km)         f8.2
+sedep        standard error in depth (km)            f8.2
+rstadel      distance to closest station             f6.1
+openaz1      teleseismic azimuth gap                 f6.1
+openaz2      secondary teleseismic azimuth gap       f6.1
+az1          semi-axis azimuth                       f4.0
+flen1        semi-axis length                        f4.1
+az2          semi-axis azimuth                       f4.0
+flen2        semi-axis length                        f4.1
+             multiply product of len1 and len2 by pi 
+             to get area of 90% confidence ellipse
+avh          statistical geometric mean of axes      f5.1
+</code></pre>
+              
+            </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+      
+    </span>
+</div>
+    <script>var base_url = '../..';</script>
+    <script src="../../js/theme.js" defer></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML" defer></script>
+      <script src="../../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>
