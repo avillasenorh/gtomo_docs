@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>Data preparation - Global Tomography</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
+
+  <link rel="stylesheet" href="../../css/theme.css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" />
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Data preparation";
+    var mkdocs_page_input_path = "data/preparation.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> Global Tomography</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../..">Home</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Data</span></p>
+                <ul class="current">
+                    <li class="toctree-l1"><a class="reference internal" href="../ehb/">EHB bulletin</a>
+                    </li>
+                    <li class="toctree-l1 current"><a class="reference internal current" href="./">Data preparation</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#station-file">Station file</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#get-station-info-from-res-files">Get station info from RES files</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#geocentric-vs-geographic">Geocentric vs geographic</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#codes">Codes</a>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                    </li>
+                </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">Global Tomography</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Data &raquo;</li>
+        
+      
+    
+    <li>Data preparation</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="data-preparation">Data preparation</h1>
+<h2 id="station-file">Station file</h2>
+<p>The first step in data processing is to obtain the station information (station code, coordinates, and elevation).
+The latest EHB datasets (EHB08 and ISC-EHB) also include a station file
+named <code>stations_ehb</code>, with station codes and coordinates.
+The most relevant fields are:</p>
+<ul>
+<li>station code</li>
+<li>geographic latitude (degrees) in the range [-90, 90]</li>
+<li>longitude (degrees) in the range [0, 360]</li>
+<li>elevation (meters above sea level)</li>
+</ul>
+<p>The station file contains a 2-line header, and a 5-line footer.
+After each line containing station information there are two
+extra blank lines:</p>
+<pre><code>Code   Station name/Region                                 Latitude  Longitude Elevation   Depth Prime  Status
+==============================================================================================================
+109C                                                        32.88925  242.89000       0.0                Open
+
+
+115A                                                        32.69972  247.77000       1.0                Open
+
+
+116A                                                        32.55933  248.30000       0.0                Open
+
+
+A04A                                                        48.71890  237.29000       0.0                Open
+
+
+A05A                                                        48.99965  237.91000       0.0                Open
+
+
+A06A                                                        49.09756  238.52000       1.0                Open
+
+...
+
+ZUL                                                         47.48077    8.39000     700.0                Open
+
+
+ZUR                                                         47.36783    8.58000     604.0                Open
+
+
+ZZT                                                         35.36345  270.62800     120.0                Open
+
+
+International Seismological Centre
+Pipers Lane, Thatcham, Berkshire
+United Kingdom RG19 4NS
+voice: +44 (0)1635 861022
+fax: +44 (0)1635 872351
+</code></pre>
+
+<p>Station elevations should be checked against the latest version of the ISC 
+<a href="http://www.isc.ac.uk/registries/">station registry</a> and/or a moder digital elevation model.
+For example in the registry the station elevation for station A06A (Chilliwack, BC, Canada)
+is 576 m, while in the above file is 1 m.</p>
+<h2 id="get-station-info-from-res-files">Get station info from RES files</h2>
+<p>Station coordinates and elevations can also be obtained from the <code>RES</code> files, together
+with additional information, such as the number of phases and the dates of the first and
+last reported phase. It is preferable to obtain the station information from the <code>RES</code> file
+because they are the values that were actually used for location.</p>
+<h3 id="geocentric-vs-geographic">Geocentric vs geographic</h3>
+<p><strong>IMPORTANT</strong>: Event and station coordinates in the <code>RES</code> files are given in geocentric 
+coordinates not in the usual geographic (also called geodetic) coordinates.
+In addition, colatitude is reported instead of latitude in the <code>RES</code> files.
+In the EHB location code and in the tomography codes
+the coordinates used are geocentric (co)latitude and longitude because they are more
+convenient to calculate distances on an ellipse. Since we assume that the Earth is
+an ellipsoid of revolution, geocentric and geographic longitude are identical. However
+geographic and geocentric latitudes differ.</p>
+<p>If <script type="math/tex"> \varphi </script> is the geographic latitude and <script type="math/tex"> \varphi^\prime </script> is the geocentric latitude, then</p>
+<p>
+<script type="math/tex; mode=display">\tan \varphi^\prime = (1-e^2) \tan \varphi</script>
+</p>
+<p>where <script type="math/tex"> e </script> is the <a href="https://en.wikipedia.org/wiki/Eccentricity_(mathematics)">eccentricity</a>.</p>
+<p>Isolating <script type="math/tex"> \varphi^\prime </script>
+</p>
+<p>
+<script type="math/tex; mode=display">\varphi^\prime = \arctan [(1-e^2) \tan(\varphi)]</script>
+</p>
+<p>The relationship between eccentricity <script type="math/tex"> e </script> and flattening <script type="math/tex"> f </script> is 
+<script type="math/tex"> e = \sqrt{ f ( 2 - f) } </script>, where flattening is defined as <script type="math/tex">f = \frac{a-b}{a} </script>.</p>
+<p>The geocentric latitude is consequently lesser (in absolute value) than the geographic
+latitude, except at the equator and the poles where they are equal.
+See this <a href="https://proj.org/operations/conversions/geoc.html">link</a>.</p>
+<p><img alt="geocentric_latitude" src="../geocentric_latitude.png" /></p>
+<p><strong>IMPORTANT:</strong> An additional complication is that the tomography code uses co-latitude <script type="math/tex"> \theta </script>
+instead of latitude <script type="math/tex"> \varphi </script>. The relationship between both is:</p>
+<p>
+<script type="math/tex; mode=display">\theta = 90^\circ - \varphi</script>
+</p>
+<h3 id="codes">Codes</h3>
+<p>The first code used to extract the station information from a RES file is <code>readsta</code>.</p>
+<p>This code reads an input file called <code>res.in</code> that contains the list of <code>RES</code> files to be
+processed. For example, for the EHB02 dataset:</p>
+<pre><code>4-69RES
+70-75RES
+76-81RES
+82-87RES
+88-93RES
+94-97RES
+98-00RES
+</code></pre>
+
+<p>The function <code>readres</code> defined in <code>readres.f</code> can read <code>RES</code> files for the EHB02, EHB03, and EHB04 dataset.
+It must be modified to read the format of the more recent EHB08 and ISC-EHB datasets.</p>
+<p>The output of <code>readsta</code> is a file called <code>ehb.sta</code> with the following format:</p>
+<pre><code>DAR      102.327   130.818  0.006      9193  19640101  19720604
+PMG       99.344   147.159  0.065     45042  19640101  20001231
+CTA      109.965   146.254  0.358     80830  19640101  20001231
+RAB       94.165   152.163  0.185     23890  19640101  20001231
+MAN       75.434   121.078  0.070      8975  19640101  19910424
+MUN      121.805   116.208  0.253     26967  19640101  20001230
+ADE      124.786   138.709  0.655     23056  19640101  20001231
+BRS      117.234   152.775  0.525     52981  19640101  19931201
+...
+PINOR     46.382   239.128  1.510        44  20001115  20001231
+BRNJ      49.508   285.434  0.050        22  20001116  20001222
+SLFW      42.434   239.472  1.750         3  20001123  20001125
+BDM       52.233   238.134  0.220        25  20001202  20001230
+KNZ      128.832   177.674  0.218        23  20001210  20001231
+LAMM      48.582   237.374  1.769         1  20001220  20001220
+PCMD      43.304   237.700  0.239         2  20001224  20001231
+</code></pre>
+
+<p>The meaning of the columns is the following:</p>
+<ul>
+<li>station code</li>
+<li>geocentric colatitude in degrees, range: [0, 180]</li>
+<li>geocentric longitude in degrees, range: [0, 360]</li>
+<li>elevation in km</li>
+<li>total number of phases for each station</li>
+<li>date of first reported phase: YYYYMMDD</li>
+<li>date of last reported phase: YYYYMMDD</li>
+</ul>
+<p>If a station in the <code>RES</code> files has the same station code but different coordinates it is treated
+as a new station. Therefore <code>ehb.sta</code> can contain duplicated stations. To find out the station
+codes with more than one entry:</p>
+<pre><code>$ awk '{print $1}' ehb.sta | sort | uniq -cd       # guniq in macOS
+</code></pre>
+<p>It is more convenient to have the station file sorted by station name. Therefore
+we create a new file <code>sort.sta</code>:</p>
+<pre><code>$ sort +0 -1 +5n -6n -o sort.sta ehb.sta   # this command can be simplified and in outdated syntax
+</code></pre>
+<p>Since the coordinates in <code>sort.sta</code> are geocentric, they need to be converted to geographic in
+order to plot the station on the map, and in case we want to compare them with the coordinates in 
+<code>stations_ehb</code>:</p>
+<pre><code class="console">sta2geo &lt;&lt; END
+sort.sta
+END
+</code></pre>
+
+<p>Output file is <code>ehbgeo.sta</code> (need to check this!!!)</p>
+<p>Finally the sorted station file needs to be converted to the station file format used by the
+tomography codes. This is carried out by other small program called <code>checksta</code> (does some
+additional checks such as duplicated stations????)</p>
+<pre><code class="console">checksta &lt;&lt; END
+sort.sta
+</code></pre>
+
+<p>This produces and output file with the name <code>num_stat_list</code> and the following format:</p>
+<pre><code>A11          1  -70.198   47.050    0.061
+A16          2  -70.006   47.278    0.015
+A21          3  -69.690   47.511    0.046
+A54          4  -70.413   47.264    0.381
+A61          5  -70.090   47.501    0.358
+A64          6  -69.892   47.634    0.137
+AAA          7   76.947   43.079    0.800
+AAE          8   38.766    8.969    2.442
+AAHD         9   32.753   23.604    0.180
+...
+ZSC       6750  121.186   30.926    0.090
+ZSP       6751 -122.257   37.758    0.119
+ZST       6752   17.103   48.004    0.250
+ZUG       6753   41.883   42.324    0.110
+ZUL       6754    8.390   47.289    0.740
+ZUR       6755    8.580   47.176    0.604
+ZZT       6756  -89.372   35.182    0.120
+</code></pre>
+
+<p>The meaning of the columns is the following:</p>
+<ul>
+<li>station code</li>
+<li>station number</li>
+<li>geocentric longitude in degrees, range [-180, 180] (check!!!)</li>
+<li>geocentric latitude in degrees, range [-90, 90]  (check!!!)</li>
+<li>elevation in km</li>
+</ul>
+<p>[Check <code>checksta</code> to see if conversion to latitude and longitude is correct)</p>
+<p>All this process has been combined in a single shell script <code>stalist.csh</code>,
+located in <code>/Volumes/DATA4/EHB/data/EHB03/STATIONS/stalist.csh</code></p>
+<p>[This script should be re-written in bash shell and lots of unnecessary checks removed]</p>
+<pre><code>#!/bin/csh
+set nonomatch
+
+# Cleanup previous run
+/bin/rm -f sort.sta num_stat_list duplic.sta duplic.list
+
+# Create station list from RES file (ehb.sta)
+readsta
+
+# Sort ehb.sta by station name (1st field) and by
+# date of first reading (6th field)
+
+sort +0 -1 +5n -6n -o sort.sta ehb.sta
+wc -l sort.sta
+
+# First create output in geographic lat,lon coordinates for plotting
+sta2geo &lt;&lt; END
+sort.sta
+END
+
+# Then check for duplicated stations
+
+awk '{print $1}' sort.sta &gt;! sta.m             # &quot;.m&quot; stands for multiple
+awk '{print $1}' sort.sta | sort -u &gt;! sta.u   # &quot;.u&quot; stands for unique
+comm -23 sta.m sta.u &gt;! sta.d
+
+sort -u sta.d &gt;! tmp
+diff sta.d tmp
+wc -l sta.d tmp
+/bin/rm -f tmp
+
+set nd = `cat sta.d | wc -l`
+
+@ i = 1
+touch duplic.list
+while ($i &lt;= $nd)
+
+    set sta = `awk 'NR == i' i=$i sta.d`
+
+    awk '$1 == kstnm' kstnm=$sta sort.sta &gt;&gt; duplic.list
+    echo &quot;&quot; &gt;&gt; duplic.list
+
+    @ i++
+
+end
+
+# run checksta to create num_stat_list
+
+checksta &lt;&lt; END
+sort.sta
+END
+
+
+wc -l num_stat_list duplic.sta
+/bin/rm -f sort.sta sta.m sta.u sta.d
+</code></pre>
+
+<p>Station file is read by <code>trres</code> with the following format:</p>
+<pre><code class="fortran">      read(30,3002,end=100,iostat=ios) ksta,idum,rlon,rlat,relev
+ 3002 format(a6,i8,3f9.3)
+</code></pre>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="../ehb/" class="btn btn-neutral" title="EHB bulletin"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../ehb/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+    </span>
+</div>
+    <script>var base_url = '../..';</script>
+    <script src="../../js/theme.js" defer></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML" defer></script>
+      <script src="../../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>
