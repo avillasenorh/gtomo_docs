@@ -1,70 +1,63 @@
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  
-  
-  <link rel="shortcut icon" href="../../img/favicon.ico">
-  <title>EHB bulletin - Global Tomography</title>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
-
-  <link rel="stylesheet" href="../../css/theme.css" />
-  <link rel="stylesheet" href="../../css/theme_extra.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" />
-  
-  <script>
-    // Current page data
-    var mkdocs_page_name = "EHB bulletin";
-    var mkdocs_page_input_path = "data/ehb.md";
-    var mkdocs_page_url = null;
-  </script>
-  
-  <script src="../../js/jquery-2.1.1.min.js" defer></script>
-  <script src="../../js/modernizr-2.8.3.min.js" defer></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
-  <script>hljs.initHighlightingOnLoad();</script> 
-  
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>EHB bulletin - Global Tomography</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "EHB bulletin";
+        var mkdocs_page_input_path = "data/ehb.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <script src="../../js/jquery-3.6.0.min.js" defer></script>
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+      <script>hljs.initHighlightingOnLoad();</script> 
 </head>
 
 <body class="wy-body-for-nav" role="document">
 
   <div class="wy-grid-for-nav">
-
-    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
     <div class="wy-side-scroll">
       <div class="wy-side-nav-search">
-        <a href="../.." class="icon icon-home"> Global Tomography</a>
-        <div role="search">
+          <a href="../.." class="icon icon-home"> Global Tomography
+        </a><div role="search">
   <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+      <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
   </form>
 </div>
       </div>
 
-      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../..">Home</a>
-                    </li>
-                </ul>
-                <p class="caption"><span class="caption-text">Data</span></p>
-                <ul class="current">
-                    <li class="toctree-l1 current"><a class="reference internal current" href="./">EHB bulletin</a>
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../..">Home</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Data</span></p>
+              <ul class="current">
+                  <li class="toctree-l1 current"><a class="reference internal current" href="./">EHB bulletin</a>
     <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#travel-time-residuals-in-the-ehb-bulletin">Travel time residuals in the EHB bulletin</a>
+    </li>
     <li class="toctree-l2"><a class="reference internal" href="#versions-of-the-bulletin">Versions of the bulletin</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#data-formats">Data formats</a>
         <ul>
     <li class="toctree-l3"><a class="reference internal" href="#res-file">RES file</a>
     </li>
-        </ul>
+    <li class="toctree-l3"><a class="reference internal" href="#hdf-file">HDF file</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#hdf-file">HDF file</a>
-        <ul>
     <li class="toctree-l3"><a class="reference internal" href="#station-file">Station file</a>
     </li>
         </ul>
@@ -72,45 +65,42 @@
     <li class="toctree-l2"><a class="reference internal" href="#references">References</a>
     </li>
     </ul>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../preparation/">Data preparation</a>
-                    </li>
-                </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../preparation/">Data preparation</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Preprocesssing</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../preprocessing/trace/">Ray tracing</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../preprocessing/clustering/">Clustering</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../preprocessing/selection/">Sorting-Renumbering-Selection</a>
+                  </li>
+              </ul>
       </div>
     </div>
     </nav>
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
-        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href="../..">Global Tomography</a>
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">Global Tomography</a>
+        
       </nav>
-
-      
       <div class="wy-nav-content">
-        <div class="rst-content">
-          <div role="navigation" aria-label="breadcrumbs navigation">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
-    <li><a href="../..">Docs</a> &raquo;</li>
-    
-      
-        
-          <li>Data &raquo;</li>
-        
-      
-    
-    <li>EHB bulletin</li>
+    <li><a href="../.." class="icon icon-home" alt="Docs"></a> &raquo;</li>
+          <li>Data &raquo;</li><li>EHB bulletin</li>
     <li class="wy-breadcrumbs-aside">
-      
     </li>
   </ul>
-  
   <hr/>
 </div>
-          <div role="main">
-            <div class="section">
+
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
               
                 <h1 id="ehb-bulletin">EHB bulletin</h1>
 <p>The most suitable database of earthquake locations and seismic phases for
@@ -122,6 +112,38 @@ of this bulletin are the following:</p>
   dynamically re-identified)</li>
 <li>takes into account the Earth's 3D structure through the use of patch corrections</li>
 </ul>
+<h2 id="travel-time-residuals-in-the-ehb-bulletin">Travel time residuals in the EHB bulletin</h2>
+<p>One of the reasons for the improvement in location provided by the EHB location code is
+that it incorporates a number of travel time corrections that take into account differences
+from ray-tracing in a 1D model on a sphere, namely:</p>
+<ul>
+<li>ellipticity correction <script type="math/tex"> elcor </script>
+</li>
+<li>elevation correction <script type="math/tex"> ecor </script>
+</li>
+<li>patch correction <script type="math/tex"> scor </script>. Takes into account the difference from 1D
+  model beneath the station (in reality a n x n degree patch).</li>
+<li>bounce point correction <script type="math/tex"> tbath </script> for depth phases pP, sP and
+  other phases with surface bounce points (PP).</li>
+<li>bounce point water correction <script type="math/tex"> twater </script> for phases that have
+  a free surface bounce point in the water (pwP).</li>
+</ul>
+<p>So if the observed (uncorrected) traveltime is <script type="math/tex"> obstt </script> and the predicted (uncorrected)
+travel time is <script type="math/tex"> prett </script>, the raw and EHB location residuals are calculated as:</p>
+<p>
+<script type="math/tex; mode=display">rawres = obstt - prett</script>
+</p>
+<p>
+<script type="math/tex; mode=display">resid_{EHB} = obstt - (prett + elcor + ecor + tbath + twater + scor)</script>
+</p>
+<p>However, for the tomography the patch correction must not be included in the computation
+of the travel time residual, because it contains information on the 3D structure that we
+want to obtain.</p>
+<p>Therefore, the travel time residual that we will pass to the tomography code is</p>
+<p>
+<script type="math/tex; mode=display">resid_{tomo} = obstt - (prett + elcor + ecor + tbath + twater)</script>
+</p>
+<p><strong>CHECK THIS!!</strong></p>
 <h2 id="versions-of-the-bulletin">Versions of the bulletin</h2>
 <p>The original EHB bulletin (Engdahl et al. 1998) included nearly 100,000 events
 from 1964 to 1995 that were well constrained with teleseismic phases.</p>
@@ -145,7 +167,7 @@ EHB02 (1964-2000), EHB04 (1964-2004), and EHB08 (1960-2008).</p>
 and geocentric longitude <script type="math/tex"> \lambda^\prime \in [0^\circ,360^\circ) </script>. Not that in the descriptions
 of the <code>RES</code> format it is <strong>incorrectly</strong> stated that coordinates are in geocentric latitude (they
 are in geocentric <strong>colatitude</strong>).</p>
-<h2 id="hdf-file"><code>HDF</code> file</h2>
+<h3 id="hdf-file"><code>HDF</code> file</h3>
 <ul>
 <li>EHB HDF format</li>
 <li>EHB04 <a href="../ehb04_sel_format/">SEL format</a></li>
@@ -170,29 +192,21 @@ Earth Structure and Global Seismicity. Earth and Space Science, 7(1),
 e2019EA000897. http://doi.org/10.1029/2019EA000897.</p>
               
             </div>
-          </div>
-          <footer>
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../.." class="btn btn-neutral float-left" title="Home"><span class="icon icon-circle-arrow-left"></span> Previous</a>
         <a href="../preparation/" class="btn btn-neutral float-right" title="Data preparation">Next <span class="icon icon-circle-arrow-right"></span></a>
-      
-      
-        <a href="../.." class="btn btn-neutral" title="Home"><span class="icon icon-circle-arrow-left"></span> Previous</a>
-      
     </div>
-  
 
   <hr/>
 
   <div role="contentinfo">
     <!-- Copyright etc -->
-    
   </div>
 
-  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
 </footer>
-      
+          
         </div>
       </div>
 
@@ -200,18 +214,19 @@ e2019EA000897. http://doi.org/10.1029/2019EA000897.</p>
 
   </div>
 
-  <div class="rst-versions" role="note" aria-label="versions">
-    <span class="rst-current-version" data-toggle="rst-current-version">
-      
-      
-        <span><a href="../.." style="color: #fcfcfc;">&laquo; Previous</a></span>
-      
-      
-        <span style="margin-left: 15px"><a href="../preparation/" style="color: #fcfcfc">Next &raquo;</a></span>
-      
-    </span>
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../.." style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../preparation/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
 </div>
     <script>var base_url = '../..';</script>
+    <script src="../../js/theme_extra.js" defer></script>
     <script src="../../js/theme.js" defer></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML" defer></script>
       <script src="../../search/main.js" defer></script>

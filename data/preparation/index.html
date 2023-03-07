@@ -1,61 +1,54 @@
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  
-  
-  <link rel="shortcut icon" href="../../img/favicon.ico">
-  <title>Data preparation - Global Tomography</title>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
-
-  <link rel="stylesheet" href="../../css/theme.css" />
-  <link rel="stylesheet" href="../../css/theme_extra.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" />
-  
-  <script>
-    // Current page data
-    var mkdocs_page_name = "Data preparation";
-    var mkdocs_page_input_path = "data/preparation.md";
-    var mkdocs_page_url = null;
-  </script>
-  
-  <script src="../../js/jquery-2.1.1.min.js" defer></script>
-  <script src="../../js/modernizr-2.8.3.min.js" defer></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
-  <script>hljs.initHighlightingOnLoad();</script> 
-  
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>Data preparation - Global Tomography</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Data preparation";
+        var mkdocs_page_input_path = "data/preparation.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <script src="../../js/jquery-3.6.0.min.js" defer></script>
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+      <script>hljs.initHighlightingOnLoad();</script> 
 </head>
 
 <body class="wy-body-for-nav" role="document">
 
   <div class="wy-grid-for-nav">
-
-    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
     <div class="wy-side-scroll">
       <div class="wy-side-nav-search">
-        <a href="../.." class="icon icon-home"> Global Tomography</a>
-        <div role="search">
+          <a href="../.." class="icon icon-home"> Global Tomography
+        </a><div role="search">
   <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+      <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
   </form>
 </div>
       </div>
 
-      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../..">Home</a>
-                    </li>
-                </ul>
-                <p class="caption"><span class="caption-text">Data</span></p>
-                <ul class="current">
-                    <li class="toctree-l1"><a class="reference internal" href="../ehb/">EHB bulletin</a>
-                    </li>
-                    <li class="toctree-l1 current"><a class="reference internal current" href="./">Data preparation</a>
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../..">Home</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Data</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../ehb/">EHB bulletin</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="./">Data preparation</a>
     <ul class="current">
     <li class="toctree-l2"><a class="reference internal" href="#station-file">Station file</a>
     </li>
@@ -68,43 +61,40 @@
         </ul>
     </li>
     </ul>
-                    </li>
-                </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Preprocesssing</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../preprocessing/trace/">Ray tracing</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../preprocessing/clustering/">Clustering</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../preprocessing/selection/">Sorting-Renumbering-Selection</a>
+                  </li>
+              </ul>
       </div>
     </div>
     </nav>
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
-        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href="../..">Global Tomography</a>
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">Global Tomography</a>
+        
       </nav>
-
-      
       <div class="wy-nav-content">
-        <div class="rst-content">
-          <div role="navigation" aria-label="breadcrumbs navigation">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
-    <li><a href="../..">Docs</a> &raquo;</li>
-    
-      
-        
-          <li>Data &raquo;</li>
-        
-      
-    
-    <li>Data preparation</li>
+    <li><a href="../.." class="icon icon-home" alt="Docs"></a> &raquo;</li>
+          <li>Data &raquo;</li><li>Data preparation</li>
     <li class="wy-breadcrumbs-aside">
-      
     </li>
   </ul>
-  
   <hr/>
 </div>
-          <div role="main">
-            <div class="section">
+
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
               
                 <h1 id="data-preparation">Data preparation</h1>
 <h2 id="station-file">Station file</h2>
@@ -157,7 +147,6 @@ United Kingdom RG19 4NS
 voice: +44 (0)1635 861022
 fax: +44 (0)1635 872351
 </code></pre>
-
 <p>Station elevations should be checked against the latest version of the ISC 
 <a href="http://www.isc.ac.uk/registries/">station registry</a> and/or a moder digital elevation model.
 For example in the registry the station elevation for station A06A (Chilliwack, BC, Canada)
@@ -201,7 +190,7 @@ instead of latitude <script type="math/tex"> \varphi </script>. The relationship
 <p>The first code used to extract the station information from a RES file is <code>readsta</code>.</p>
 <p>This code reads an input file called <code>res.in</code> that contains the list of <code>RES</code> files to be
 processed. For example, for the EHB02 dataset:</p>
-<pre><code>4-69RES
+<pre><code>64-69RES
 70-75RES
 76-81RES
 82-87RES
@@ -209,7 +198,6 @@ processed. For example, for the EHB02 dataset:</p>
 94-97RES
 98-00RES
 </code></pre>
-
 <p>The function <code>readres</code> defined in <code>readres.f</code> can read <code>RES</code> files for the EHB02, EHB03, and EHB04 dataset.
 It must be modified to read the format of the more recent EHB08 and ISC-EHB datasets.</p>
 <p>The output of <code>readsta</code> is a file called <code>ehb.sta</code> with the following format:</p>
@@ -230,7 +218,6 @@ KNZ      128.832   177.674  0.218        23  20001210  20001231
 LAMM      48.582   237.374  1.769         1  20001220  20001220
 PCMD      43.304   237.700  0.239         2  20001224  20001231
 </code></pre>
-
 <p>The meaning of the columns is the following:</p>
 <ul>
 <li>station code</li>
@@ -253,19 +240,17 @@ we create a new file <code>sort.sta</code>:</p>
 <p>Since the coordinates in <code>sort.sta</code> are geocentric, they need to be converted to geographic in
 order to plot the station on the map, and in case we want to compare them with the coordinates in 
 <code>stations_ehb</code>:</p>
-<pre><code class="console">sta2geo &lt;&lt; END
+<pre><code class="language-console">sta2geo &lt;&lt; END
 sort.sta
 END
 </code></pre>
-
 <p>Output file is <code>ehbgeo.sta</code> (need to check this!!!)</p>
 <p>Finally the sorted station file needs to be converted to the station file format used by the
 tomography codes. This is carried out by other small program called <code>checksta</code> (does some
 additional checks such as duplicated stations????)</p>
-<pre><code class="console">checksta &lt;&lt; END
+<pre><code class="language-console">checksta &lt;&lt; END
 sort.sta
 </code></pre>
-
 <p>This produces and output file with the name <code>num_stat_list</code> and the following format:</p>
 <pre><code>A11          1  -70.198   47.050    0.061
 A16          2  -70.006   47.278    0.015
@@ -285,7 +270,6 @@ ZUL       6754    8.390   47.289    0.740
 ZUR       6755    8.580   47.176    0.604
 ZZT       6756  -89.372   35.182    0.120
 </code></pre>
-
 <p>The meaning of the columns is the following:</p>
 <ul>
 <li>station code</li>
@@ -354,34 +338,27 @@ END
 wc -l num_stat_list duplic.sta
 /bin/rm -f sort.sta sta.m sta.u sta.d
 </code></pre>
-
 <p>Station file is read by <code>trres</code> with the following format:</p>
-<pre><code class="fortran">      read(30,3002,end=100,iostat=ios) ksta,idum,rlon,rlat,relev
+<pre><code class="language-fortran">      read(30,3002,end=100,iostat=ios) ksta,idum,rlon,rlat,relev
  3002 format(a6,i8,3f9.3)
 </code></pre>
               
             </div>
-          </div>
-          <footer>
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-      
-        <a href="../ehb/" class="btn btn-neutral" title="EHB bulletin"><span class="icon icon-circle-arrow-left"></span> Previous</a>
-      
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../ehb/" class="btn btn-neutral float-left" title="EHB bulletin"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../../preprocessing/trace/" class="btn btn-neutral float-right" title="Ray tracing">Next <span class="icon icon-circle-arrow-right"></span></a>
     </div>
-  
 
   <hr/>
 
   <div role="contentinfo">
     <!-- Copyright etc -->
-    
   </div>
 
-  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
 </footer>
-      
+          
         </div>
       </div>
 
@@ -389,16 +366,19 @@ wc -l num_stat_list duplic.sta
 
   </div>
 
-  <div class="rst-versions" role="note" aria-label="versions">
-    <span class="rst-current-version" data-toggle="rst-current-version">
-      
-      
-        <span><a href="../ehb/" style="color: #fcfcfc;">&laquo; Previous</a></span>
-      
-      
-    </span>
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../ehb/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../../preprocessing/trace/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
 </div>
     <script>var base_url = '../..';</script>
+    <script src="../../js/theme_extra.js" defer></script>
     <script src="../../js/theme.js" defer></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML" defer></script>
       <script src="../../search/main.js" defer></script>
