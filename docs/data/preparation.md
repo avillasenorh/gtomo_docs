@@ -108,7 +108,7 @@ This code reads an input file called `res.in` that contains the list of `RES` fi
 processed. For example, for the EHB02 dataset:
 
 ```
-4-69RES
+64-69RES
 70-75RES
 76-81RES
 82-87RES

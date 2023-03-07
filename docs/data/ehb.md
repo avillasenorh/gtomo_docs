@@ -9,6 +9,38 @@ of this bulletin are the following:
   dynamically re-identified)
 - takes into account the Earth's 3D structure through the use of patch corrections
 
+## Travel time residuals in the EHB bulletin
+
+One of the reasons for the improvement in location provided by the EHB location code is
+that it incorporates a number of travel time corrections that take into account differences
+from ray-tracing in a 1D model on a sphere, namely:
+
+- ellipticity correction \( elcor \)
+- elevation correction \( ecor \)
+- patch correction \( scor \). Takes into account the difference from 1D
+  model beneath the station (in reality a n x n degree patch).
+- bounce point correction \( tbath \) for depth phases pP, sP and
+  other phases with surface bounce points (PP).
+- bounce point water correction \( twater \) for phases that have
+  a free surface bounce point in the water (pwP).
+
+So if the observed (uncorrected) traveltime is \( obstt \) and the predicted (uncorrected)
+travel time is \( prett \), the raw and EHB location residuals are calculated as:
+
+$$rawres = obstt - prett$$
+
+$$resid_{EHB} = obstt - (prett + elcor + ecor + tbath + twater + scor)$$
+
+However, for the tomography the patch correction must not be included in the computation
+of the travel time residual, because it contains information on the 3D structure that we
+want to obtain.
+
+Therefore, the travel time residual that we will pass to the tomography code is
+
+$$resid_{tomo} = obstt - (prett + elcor + ecor + tbath + twater)$$
+
+**CHECK THIS!!**
+
 ## Versions of the bulletin
 
 The original EHB bulletin (Engdahl et al. 1998) included nearly 100,000 events
@@ -27,7 +59,6 @@ More recently the [ISC](http://www.isc.ac.uk) has taken over the task of continu
 
 ### `RES` file
 
-
 The format of the `RES` files in the ISC-EHB bulletin is described [here](isc-ehb_res_format.md).
 
 - EHB RES format
@@ -41,7 +72,7 @@ and geocentric longitude \( \lambda^\prime \in [0^\circ,360^\circ) \). Not that 
 of the `RES` format it is **incorrectly** stated that coordinates are in geocentric latitude (they
 are in geocentric **colatitude**).
 
-## `HDF` file
+### `HDF` file
 
 - EHB HDF format
 - EHB04 [SEL format](ehb04_sel_format.md)

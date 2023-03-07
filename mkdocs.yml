@@ -5,6 +5,10 @@ nav:
 - Data:
     - 'EHB bulletin': 'data/ehb.md'
     - 'Data preparation': 'data/preparation.md'
+- Preprocesssing:
+    - 'Ray tracing': 'preprocessing/trace.md'
+    - 'Clustering': 'preprocessing/clustering.md'
+    - 'Sorting-Renumbering-Selection': 'preprocessing/selection.md'
 
 extra_javascript:
 - https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML
